@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0D1321;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .nb-desktop { display: none !important; }
+  .nb-mobile { display: flex !important; }
+  .catbar { padding: 0 16px !important; gap: 0 !important; overflow-x: auto; }
+  .catbar::-webkit-scrollbar { display: none; }
+  .hero { height: 200px !important; gap: 12px !important; }
+  .sec { padding: 20px 16px 32px !important; }
+  .footer { padding: 20px 16px !important; }
+  .ft { flex-direction: column !important; gap: 16px !important; align-items: flex-start !important; }
+  .ft-links { flex-wrap: wrap !important; gap: 12px !important; }
+}
