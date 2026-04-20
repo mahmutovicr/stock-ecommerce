@@ -36,14 +36,14 @@ const Footer = () => (
     `}</style>
     <div className="footer-inner">
       <div className="footer-top">
-        <div style={{ display:"flex", alignItems:"center", gap:"8px" }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" strokeWidth="2">
+        <div style={{ display:"flex", alignItems:"center", gap:"9px" }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" strokeWidth="2">
             <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#00AAFF"/><stop offset="100%" stopColor="#FF2020"/></linearGradient></defs>
             <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="url(#fg)" />
             <path d="M2 17l10 5 10-5" stroke="url(#fg)" />
             <path d="M2 12l10 5 10-5" stroke="url(#fg)" />
           </svg>
-          <span style={{ fontSize:"16px", fontWeight:700, letterSpacing:"5px", color:"#E8F0FF" }}>STOCK</span>
+          <span style={{ fontSize:"18px", fontWeight:700, letterSpacing:"6px", color:"#F0F4FF" }}>STOCK</span>
         </div>
         <div className="footer-links">
           {["Terms of Use", "Legal Notice", "Privacy Policy", "Contact"].map((link) => (
