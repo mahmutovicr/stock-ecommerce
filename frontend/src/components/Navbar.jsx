@@ -67,57 +67,61 @@ const Navbar = () => {
   return (
     <>
       <style>{`
-        .nb-wrap { padding: 0 44px; }
-        .nb-search { max-width: 440px; }
+        .nb-wrap {
+          padding: 0 44px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: rgba(13,18,32,0.98);
+          border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .nb-search { width: 100%; max-width: 440px; }
+        .nb-logo-txt { font-size: 18px; letter-spacing: 6px; }
+        .nb-input {
+          width: 100%;
+          background: transparent;
+          border: 1px solid rgba(0,100,180,0.3);
+          border-radius: 4px;
+          padding: 8px 34px 8px 12px;
+          color: #4A7AAA;
+          font-size: 11px;
+          outline: none;
+          letter-spacing: 0.8px;
+          box-sizing: border-box;
+          font-family: 'DM Sans','Inter',sans-serif;
+        }
         @media (max-width: 768px) {
-          .nb-wrap { padding: 0 16px; gap: 10px !important; }
-          .nb-search { max-width: 200px; }
+          .nb-wrap { padding: 0 16px; gap: 12px; }
+          .nb-search { max-width: 220px; }
           .nb-logo-txt { font-size: 14px !important; letter-spacing: 3px !important; }
         }
         @media (max-width: 480px) {
-          .nb-search { max-width: 140px; }
+          .nb-wrap { padding: 0 12px; gap: 8px; }
+          .nb-search { max-width: 130px; }
           .nb-logo-txt { font-size: 12px !important; letter-spacing: 2px !important; }
+          .nb-input { font-size: 10px; padding: 7px 28px 7px 10px; }
         }
       `}</style>
 
-      <Box
-        className="nb-wrap"
-        bg="rgba(13,18,32,0.98)"
-        borderBottom="1px solid rgba(255,255,255,0.07)"
-        h="60px"
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        gap="20px"
-        position="sticky"
-        top="0"
-        zIndex="100">
-
+      <div className="nb-wrap">
         <Flex align="center" gap="9px" minW="fit-content" cursor="pointer" onClick={handleLogoClick} flexShrink="0">
           <StockLogo />
-          <Text className="nb-logo-txt" fontSize="18px" fontWeight="700" letterSpacing="6px" color="#F0F4FF">STOCK</Text>
+          <Text className="nb-logo-txt" fontWeight="700" color="#F0F4FF">STOCK</Text>
         </Flex>
 
-        <Box className="nb-search" flex="1" mx="auto" position="relative" ref={ref}>
+        <Box className="nb-search" position="relative" ref={ref}>
           <Box position="relative">
             <input
+              className="nb-input"
               value={query}
               onChange={handleSearch}
               onFocus={() => suggestions.length > 0 && setShowSuggestions(true)}
               placeholder="SEARCH PRODUCTS..."
-              style={{
-                width: "100%",
-                background: "transparent",
-                border: "1px solid rgba(0,100,180,0.3)",
-                borderRadius: "4px",
-                padding: "8px 34px 8px 12px",
-                color: "#4A7AAA",
-                fontSize: "11px",
-                outline: "none",
-                letterSpacing: "0.8px",
-                boxSizing: "border-box",
-                fontFamily: "'DM Sans','Inter',sans-serif",
-              }}
             />
             <Box position="absolute" right="10px" top="50%" transform="translateY(-50%)" color="#2A4A6A" fontSize="14px" display="flex" alignItems="center">
               <LuSearch />
@@ -209,7 +213,7 @@ const Navbar = () => {
             <LuPlus />
           </Box>
         </Flex>
-      </Box>
+      </div>
     </>
   )
 }
