@@ -1,6 +1,6 @@
 <div align="center">
 
-# STOCK
+# STOCK E-commerce Shop
 
 </div>
 
@@ -8,7 +8,7 @@
 
 ## About
 
-Full Stack E-commerce Shop
+A full-stack tech e-commerce shop for discovering and managing tech products featuring live search, dynamic filtering and a admin panel.
 
 ## Live Demo
 https://stock-ecommerce.onrender.com/
