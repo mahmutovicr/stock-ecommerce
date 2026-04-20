@@ -27,18 +27,66 @@ const Hero = () => {
         .mq-name { font-size:13px; font-weight:600; letter-spacing:1.5px; color:#E0ECFF; text-transform:uppercase; font-family:'DM Sans','Inter',sans-serif; }
         .mq-cat { font-size:8px; font-weight:600; letter-spacing:1.5px; color:#6B84A8; text-transform:uppercase; font-family:'DM Sans','Inter',sans-serif; }
         .mq-sep { color:#1E3050; font-size:14px; }
-        .mq-fade-l { position:absolute; top:0; left:0; height:100%; width:80px; background:linear-gradient(90deg,rgba(4,8,15,0.9),transparent); z-index:2; pointer-events:none; }
-        .mq-fade-r { position:absolute; top:0; right:0; height:100%; width:80px; background:linear-gradient(90deg,transparent,rgba(4,8,15,0.9)); z-index:2; pointer-events:none; }
-        .hero-learn { position:relative; z-index:4; background:transparent; color:#C8D8F0; border:1px solid rgba(255,255,255,0.2); border-radius:3px; padding:10px 44px; font-size:16px; font-weight:600; letter-spacing:1px; cursor:pointer; font-family:'DM Sans','Inter',sans-serif; transition:border-color 0.2s,color 0.2s; }
-        .hero-learn:hover { border-color:rgba(0,170,255,0.5); color:#00AAFF; }
+        .mq-fade-l { position:absolute; top:0; left:0; height:100%; width:60px; background:linear-gradient(90deg,rgba(4,8,15,0.9),transparent); z-index:2; pointer-events:none; }
+        .mq-fade-r { position:absolute; top:0; right:0; height:100%; width:60px; background:linear-gradient(90deg,transparent,rgba(4,8,15,0.9)); z-index:2; pointer-events:none; }
+        .hero-wrap {
+          position: relative;
+          height: 270px;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 18px;
+        }
+        .hero-title {
+          position: relative;
+          z-index: 4;
+          font-size: 16px;
+          font-weight: 700;
+          letter-spacing: 5px;
+          color: #FF2020;
+          text-transform: uppercase;
+          text-align: center;
+          width: 100%;
+          font-family: 'DM Sans','Inter',sans-serif;
+        }
+        .hero-learn {
+          position: relative;
+          z-index: 4;
+          background: transparent;
+          color: #C8D8F0;
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 3px;
+          padding: 10px 44px;
+          font-size: 16px;
+          font-weight: 600;
+          letter-spacing: 1px;
+          cursor: pointer;
+          font-family: 'DM Sans','Inter',sans-serif;
+          transition: border-color 0.2s, color 0.2s;
+        }
+        .hero-learn:hover { border-color: rgba(0,170,255,0.5); color: #00AAFF; }
+        @media (max-width: 768px) {
+          .hero-wrap { height: 220px; gap: 14px; }
+          .hero-title { font-size: 14px; letter-spacing: 4px; }
+          .hero-learn { padding: 9px 32px; font-size: 14px; }
+          .mq-name { font-size: 11px; }
+          .mq-item { padding: 0 18px; }
+        }
+        @media (max-width: 480px) {
+          .hero-wrap { height: 190px; gap: 12px; }
+          .hero-title { font-size: 12px; letter-spacing: 3px; }
+          .hero-learn { padding: 8px 24px; font-size: 13px; }
+          .mq-name { font-size: 10px; }
+          .mq-item { padding: 0 14px; }
+        }
       `}</style>
 
-      <div style={{ position:"relative", height:"270px", overflow:"hidden", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center", gap:"18px" }}>
+      <div className="hero-wrap">
         <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at 15% 60%,rgba(160,30,30,0.5) 0%,transparent 44%),radial-gradient(ellipse at 85% 40%,rgba(0,90,180,0.45) 0%,transparent 44%),linear-gradient(135deg,#04080F 0%,#080C18 40%,#06090F 65%,#030508 100%)" }} />
 
-        <div style={{ position:"relative", zIndex:4, fontSize:"16px", fontWeight:700, letterSpacing:"5px", color:"#FF2020", textTransform:"uppercase", textAlign:"center", width:"100%", fontFamily:"'DM Sans','Inter',sans-serif" }}>
-          New Arrivals
-        </div>
+        <div className="hero-title">New Arrivals</div>
 
         <div style={{ position:"relative", zIndex:4, width:"100%", overflow:"hidden" }}>
           <div className="mq-fade-l" />
