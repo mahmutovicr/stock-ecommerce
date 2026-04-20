@@ -26,36 +26,75 @@ const ProductCard = ({ product, isAdmin = false }) => {
 
   return (
     <>
-      <div
-        style={{ background:"linear-gradient(160deg,#0D1828,#0A1220)", border:"1px solid rgba(255,255,255,0.055)", borderRadius:"10px", cursor:"pointer", transition:"border-color 0.3s,box-shadow 0.3s,transform 0.28s", display:"flex", flexDirection:"column", alignItems:"center", padding:"24px 16px 20px", position:"relative", overflow:"hidden", textAlign:"center", fontFamily:"'DM Sans','Inter',sans-serif" }}
-        onMouseEnter={(e) => { e.currentTarget.style.borderColor = "rgba(0,160,255,0.22)"; e.currentTarget.style.boxShadow = "0 16px 48px rgba(0,0,0,0.7)"; e.currentTarget.style.transform = "translateY(-5px)" }}
-        onMouseLeave={(e) => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.055)"; e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)" }}>
+      <style>{`
+        .pcard {
+          background: linear-gradient(160deg,#0D1828,#0A1220);
+          border: 1px solid rgba(255,255,255,0.055);
+          border-radius: 10px;
+          cursor: pointer;
+          transition: border-color 0.3s, box-shadow 0.3s, transform 0.28s;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 24px 16px 20px;
+          position: relative;
+          overflow: hidden;
+          text-align: center;
+          font-family: 'DM Sans','Inter',sans-serif;
+        }
+        .pcard:hover {
+          border-color: rgba(0,160,255,0.22);
+          box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+          transform: translateY(-5px);
+        }
+        .pcard-cat { font-size: 14px; font-weight: 400; color: #4A90C4; margin-bottom: 10px; display: inline-block; border: 1px solid rgba(0,100,180,0.3); border-radius: 3px; padding: 3px 10px; }
+        .pcard-name { font-size: 14px; font-weight: 700; color: #D0E4F8; margin-bottom: 7px; line-height: 1.4; width: 100%; display: block; word-break: break-word; }
+        .pcard-desc { font-size: 14px; color: #274060; line-height: 1.6; width: 100%; margin-bottom: 16px; flex: 1; display: block; }
+        .pcard-price-sym { font-size: 13px; font-weight: 500; color: #0D4F8C; }
+        .pcard-price { font-size: 22px; font-weight: 700; color: #0D6EBF; letter-spacing: -0.8px; }
+        .pcard-buy {
+          background: rgba(0,80,160,0.18);
+          color: #1A7ACC;
+          border: 1px solid rgba(0,100,200,0.4);
+          padding: 11px 0;
+          font-size: 14px;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          border-radius: 4px;
+          width: 100%;
+          cursor: pointer;
+          font-family: 'DM Sans',sans-serif;
+          transition: all 0.2s;
+        }
+        .pcard-buy:hover { background: #8B1A1A; color: #fff; border-color: #8B1A1A; }
+        @media (max-width: 600px) {
+          .pcard { padding: 16px 12px 14px; }
+          .pcard-cat { font-size: 12px; padding: 2px 8px; margin-bottom: 8px; }
+          .pcard-name { font-size: 13px; margin-bottom: 5px; }
+          .pcard-desc { font-size: 12px; margin-bottom: 12px; }
+          .pcard-price { font-size: 18px; }
+          .pcard-buy { font-size: 13px; padding: 9px 0; }
+        }
+        @media (max-width: 360px) {
+          .pcard { padding: 14px 10px 12px; }
+          .pcard-name { font-size: 12px; }
+          .pcard-desc { font-size: 11px; }
+        }
+      `}</style>
 
+      <div className="pcard">
         <div style={{ position:"absolute", top:0, left:0, right:0, height:"1px", background:"linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent)", pointerEvents:"none" }} />
 
-        <span style={{ fontSize:"14px", fontWeight:400, color:"#4A90C4", marginBottom:"10px", display:"inline-block", textAlign:"center", border:"1px solid rgba(0,100,180,0.3)", borderRadius:"3px", padding:"3px 10px", background:"transparent" }}>
-          {product.category}
-        </span>
-
-        <span style={{ fontSize:"14px", fontWeight:700, color:"#D0E4F8", textAlign:"center", marginBottom:"7px", lineHeight:1.4, width:"100%", display:"block", wordBreak:"break-word" }}>
-          {product.name}
-        </span>
-
-        <span style={{ fontSize:"14px", color:"#274060", textAlign:"center", lineHeight:1.6, width:"100%", marginBottom:"16px", flex:1, display:"block" }}>
-          {product.description}
-        </span>
+        <span className="pcard-cat">{product.category}</span>
+        <span className="pcard-name">{product.name}</span>
+        <span className="pcard-desc">{product.description}</span>
 
         <div style={{ display:"flex", alignItems:"baseline", justifyContent:"center", gap:"3px", marginBottom:"14px", width:"100%" }}>
-          <span style={{ fontSize:"13px", fontWeight:500, color:"#0D4F8C" }}>$</span>
-          <span style={{ fontSize:"22px", fontWeight:700, color:"#0D6EBF", letterSpacing:"-0.8px" }}>{product.price}</span>
+          <span className="pcard-price-sym">$</span>
+          <span className="pcard-price">{product.price}</span>
         </div>
 
-        <button
-          style={{ background:"rgba(0,80,160,0.18)", color:"#1A7ACC", border:"1px solid rgba(0,100,200,0.4)", padding:"11px 0", fontSize:"14px", fontWeight:700, letterSpacing:"0.5px", borderRadius:"4px", width:"100%", cursor:"pointer", fontFamily:"'DM Sans',sans-serif", transition:"all 0.2s" }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = "#8B1A1A"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#8B1A1A" }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(0,80,160,0.18)"; e.currentTarget.style.color = "#1A7ACC"; e.currentTarget.style.borderColor = "rgba(0,100,200,0.4)" }}>
-          Buy Now
-        </button>
+        <button className="pcard-buy">Buy Now</button>
 
         {isAdmin && (
           <div style={{ display:"flex", gap:"8px", marginTop:"10px", width:"100%" }}>
