@@ -29,24 +29,43 @@ const CreatePage = () => {
   return (
     <div style={{ minHeight:"100vh", background:"#0D1321", display:"flex", flexDirection:"column", fontFamily:"'DM Sans','Inter',sans-serif" }}>
       <Navbar />
-      <div style={{ flex:1, display:"flex", justifyContent:"center", padding:"60px 20px" }}>
-        <div style={{ width:"100%", maxWidth:"480px" }}>
+      <style>{`
+        .create-wrap {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          padding: 60px 20px;
+        }
+        .create-inner {
+          width: 100%;
+          max-width: 480px;
+        }
+        .create-card {
+          background: linear-gradient(160deg,#0D1828,#0A1220);
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 10px;
+          padding: 32px;
+        }
+        @media (max-width: 480px) {
+          .create-wrap { padding: 32px 16px; }
+          .create-card { padding: 24px 18px; }
+        }
+      `}</style>
+      <div className="create-wrap">
+        <div className="create-inner">
           <h1 style={{ fontSize:"16px", fontWeight:700, letterSpacing:"3px", color:"#F0F4FF", textAlign:"center", textTransform:"uppercase", marginBottom:"40px" }}>
             New Product
           </h1>
-          <div style={{ background:"linear-gradient(160deg,#0D1828,#0A1220)", border:"1px solid rgba(255,255,255,0.07)", borderRadius:"10px", padding:"32px" }}>
+          <div className="create-card">
             <div style={{ display:"flex", flexDirection:"column", gap:"18px" }}>
-
               <div>
                 <span style={labelStyle}>Product Name</span>
                 <input style={inputStyle} placeholder="Product name..." value={newProduct.name} onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })} />
               </div>
-
               <div>
                 <span style={labelStyle}>Price ($)</span>
                 <input style={inputStyle} type="number" placeholder="Price..." value={newProduct.price} onChange={(e) => setNewProduct({ ...newProduct, price: e.target.value })} />
               </div>
-
               <div>
                 <span style={labelStyle}>Category</span>
                 <select
@@ -59,13 +78,11 @@ const CreatePage = () => {
                   ))}
                 </select>
               </div>
-
               <div>
                 <span style={labelStyle}>Description</span>
                 <input style={inputStyle} placeholder="Description..." value={newProduct.description} onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })} />
               </div>
-
-              <div style={{ display:"flex", gap:"16px" }}>
+              <div style={{ display:"flex", gap:"16px", flexWrap:"wrap" }}>
                 <label style={{ display:"flex", alignItems:"center", gap:"8px", cursor:"pointer" }}>
                   <input type="checkbox" checked={newProduct.featured} onChange={(e) => setNewProduct({ ...newProduct, featured: e.target.checked })} />
                   <span style={{ fontSize:"12px", color:"#6B84A8" }}>Featured (Top Picks)</span>
@@ -75,7 +92,6 @@ const CreatePage = () => {
                   <span style={{ fontSize:"12px", color:"#6B84A8" }}>New Arrival</span>
                 </label>
               </div>
-
               <div style={{ display:"flex", gap:"12px", marginTop:"8px" }}>
                 <button onClick={handleAdd}
                   style={{ flex:1, background:"rgba(0,170,255,0.09)", color:"#00AAFF", border:"1px solid rgba(0,170,255,0.25)", borderRadius:"4px", padding:"11px", fontSize:"13px", fontWeight:600, cursor:"pointer", fontFamily:"'DM Sans',sans-serif", transition:"all 0.2s" }}
