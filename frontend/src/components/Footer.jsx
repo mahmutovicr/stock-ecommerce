@@ -1,6 +1,30 @@
 const Footer = () => (
   <div style={{ background:"#090D1A", borderTop:"1px solid rgba(255,255,255,0.06)", padding:"28px 44px", fontFamily:"'DM Sans','Inter',sans-serif" }}>
-    <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"20px" }}>
+    <style>{`
+      .footer-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-links {
+        display: flex;
+        gap: 26px;
+        flex-wrap: wrap;
+      }
+      @media (max-width: 600px) {
+        .footer-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .footer-links {
+          gap: 16px;
+        }
+      }
+    `}</style>
+    <div className="footer-top">
       <div style={{ display:"flex", alignItems:"center", gap:"8px" }}>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" strokeWidth="2">
           <defs><linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#00AAFF"/><stop offset="100%" stopColor="#FF2020"/></linearGradient></defs>
@@ -10,7 +34,7 @@ const Footer = () => (
         </svg>
         <span style={{ fontSize:"16px", fontWeight:700, letterSpacing:"5px", color:"#E8F0FF" }}>STOCK</span>
       </div>
-      <div style={{ display:"flex", gap:"26px" }}>
+      <div className="footer-links">
         {["Terms of Use", "Legal Notice", "Privacy Policy", "Contact"].map((link) => (
           <a key={link} href="#" style={{ color:"#2A3F60", fontSize:"14px", fontWeight:500, textDecoration:"none", transition:"color 0.2s" }}
             onMouseEnter={(e) => { e.currentTarget.style.color = "#6B84A8" }}

@@ -12,10 +12,8 @@ const CategoryBar = () => {
           padding: 0 44px;
           display: flex;
           align-items: center;
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
+          flex-wrap: wrap;
         }
-        .catbar-wrap::-webkit-scrollbar { display: none; }
         .cat-btn {
           font-size: 14px;
           font-weight: 500;
