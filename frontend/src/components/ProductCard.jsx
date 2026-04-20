@@ -47,6 +47,13 @@ const ProductCard = ({ product, isAdmin = false }) => {
           box-shadow: 0 16px 48px rgba(0,0,0,0.7);
           transform: translateY(-5px);
         }
+        @media (hover: none) {
+          .pcard:hover {
+            border-color: rgba(255,255,255,0.055);
+            box-shadow: none;
+            transform: none;
+          }
+        }
         .pcard-cat { font-size: 14px; font-weight: 400; color: #4A90C4; margin-bottom: 10px; display: inline-block; border: 1px solid rgba(0,100,180,0.3); border-radius: 3px; padding: 3px 10px; }
         .pcard-name { font-size: 14px; font-weight: 700; color: #D0E4F8; margin-bottom: 7px; line-height: 1.4; width: 100%; display: block; word-break: break-word; }
         .pcard-desc { font-size: 14px; color: #274060; line-height: 1.6; width: 100%; margin-bottom: 16px; flex: 1; display: block; }
