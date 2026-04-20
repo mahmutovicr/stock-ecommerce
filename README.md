@@ -8,7 +8,7 @@
 
 ## About
 
-Full Stack E-commerce Platform 
+Full Stack E-commerce Shop
 
 ## Live Demo
 
