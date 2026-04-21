@@ -1,5 +1,7 @@
 import { create } from "zustand"
 
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD
+
 export const useProductStore = create((set, get) => ({
   products: [],
   filteredProducts: [],
@@ -7,6 +9,26 @@ export const useProductStore = create((set, get) => ({
   activeCategory: null,
   topPicks: [],
   searchQuery: "",
+  isAdmin: false,
+
+  checkAdmin: () => {
+    const stored = localStorage.getItem("stock-admin")
+    if (stored === ADMIN_PASSWORD) set({ isAdmin: true })
+  },
+
+  loginAdmin: (password) => {
+    if (password === ADMIN_PASSWORD) {
+      localStorage.setItem("stock-admin", password)
+      set({ isAdmin: true })
+      return true
+    }
+    return false
+  },
+
+  logoutAdmin: () => {
+    localStorage.removeItem("stock-admin")
+    set({ isAdmin: false })
+  },
 
   fetchProducts: async () => {
     try {
