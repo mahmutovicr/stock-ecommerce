@@ -10,6 +10,8 @@ const ProductCard = ({ product, isAdmin = false }) => {
     price: product.price || "",
     category: product.category || "",
     description: product.description || "",
+    featured: product.featured || false,
+    newArrival: product.newArrival || false,
   })
   const { deleteProduct, updateProduct } = useProductStore()
 
@@ -133,6 +135,16 @@ const ProductCard = ({ product, isAdmin = false }) => {
                     style={{ width:"100%", background:"transparent", border:"1px solid rgba(0,100,180,0.3)", borderRadius:"4px", padding:"8px 12px", color:"#C8D8F0", fontSize:"13px", outline:"none", fontFamily:"'DM Sans',sans-serif", boxSizing:"border-box" }} />
                 </div>
               ))}
+              <div style={{ display:"flex", gap:"16px", flexWrap:"wrap" }}>
+                <label style={{ display:"flex", alignItems:"center", gap:"8px", cursor:"pointer" }}>
+                  <input type="checkbox" checked={updatedProduct.featured} onChange={(e) => setUpdatedProduct({ ...updatedProduct, featured: e.target.checked })} />
+                  <span style={{ fontSize:"12px", color:"#6B84A8" }}>Featured (Top Picks)</span>
+                </label>
+                <label style={{ display:"flex", alignItems:"center", gap:"8px", cursor:"pointer" }}>
+                  <input type="checkbox" checked={updatedProduct.newArrival} onChange={(e) => setUpdatedProduct({ ...updatedProduct, newArrival: e.target.checked })} />
+                  <span style={{ fontSize:"12px", color:"#6B84A8" }}>New Arrival</span>
+                </label>
+              </div>
               <div style={{ display:"flex", gap:"12px", marginTop:"8px" }}>
                 <button onClick={handleUpdate}
                   style={{ flex:1, background:"rgba(0,170,255,0.1)", color:"#00AAFF", border:"1px solid rgba(0,170,255,0.3)", borderRadius:"4px", padding:"10px", fontSize:"12px", fontWeight:600, cursor:"pointer" }}

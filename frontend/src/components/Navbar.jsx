@@ -218,22 +218,6 @@ const Navbar = () => {
             position="relative"
             _hover={{ borderColor:"rgba(0,170,255,0.3)" }}>
             <LuShoppingCart />
-            <Box
-              position="absolute"
-              top="-5px"
-              right="-5px"
-              bg="#FF2020"
-              color="white"
-              borderRadius="full"
-              w="14px"
-              h="14px"
-              fontSize="8px"
-              fontWeight="700"
-              display="flex"
-              alignItems="center"
-              justifyContent="center">
-              2
-            </Box>
           </Box>
 
           {isAdmin && (

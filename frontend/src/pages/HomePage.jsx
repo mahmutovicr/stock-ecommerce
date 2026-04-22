@@ -7,7 +7,7 @@ import ProductCard from "../components/ProductCard"
 import Footer from "../components/Footer"
 
 const HomePage = () => {
-  const { fetchProducts, topPicks, filteredProducts, activeCategory } = useProductStore()
+  const { fetchProducts, topPicks, filteredProducts, activeCategory, isAdmin } = useProductStore()
 
   useEffect(() => {
     fetchProducts()
@@ -64,7 +64,7 @@ const HomePage = () => {
               </div>
               <div className="home-grid-4">
                 {topPicks.map((product) => (
-                  <ProductCard key={product._id} product={product} isAdmin={true} />
+                  <ProductCard key={product._id} product={product} isAdmin={isAdmin} />
                 ))}
               </div>
             </>

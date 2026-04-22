@@ -99,10 +99,14 @@ export const useProductStore = create((set, get) => ({
     })
     const data = await res.json()
     if (!data.success) return { success: false, message: data.message }
-    set((state) => ({
-      products: state.products.map((p) => (p._id === pid ? data.data : p)),
-      filteredProducts: state.filteredProducts.map((p) => (p._id === pid ? data.data : p)),
-    }))
+    set((state) => {
+      const updatedProducts = state.products.map((p) => (p._id === pid ? data.data : p))
+      return {
+        products: updatedProducts,
+        filteredProducts: state.filteredProducts.map((p) => (p._id === pid ? data.data : p)),
+        topPicks: updatedProducts.filter((p) => p.featured),
+      }
+    })
     return { success: true, message: "Product updated." }
   },
 
