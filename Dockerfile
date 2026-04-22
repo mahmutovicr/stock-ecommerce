@@ -3,6 +3,8 @@ WORKDIR /app/frontend
 COPY frontend/package*.json ./
 RUN npm ci
 COPY frontend/ .
+ARG VITE_ADMIN_PASSWORD
+ENV VITE_ADMIN_PASSWORD=$VITE_ADMIN_PASSWORD
 RUN npm run build
 
 FROM node:20-alpine
