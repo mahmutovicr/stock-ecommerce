@@ -1,6 +1,6 @@
 <div align="center">
 
-# STOCK E-commerce Shop
+# STOCK 
 
 </div>
 
@@ -20,12 +20,6 @@ https://stock-ecommerce.onrender.com/
 - **Admin Panel** — Create, update and delete products
 - **New Arrivals** — Animated hero banner with latest products
 - **Responsive** — Optimised for all screen sizes
-
-## Usage
-
-- Browse products by category
-- Use search bar to find specific products
-- Admin manages products via **+** button
 
 ## Tech Stack
 ![React](https://img.shields.io/badge/React_18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
