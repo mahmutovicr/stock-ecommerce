@@ -8,7 +8,7 @@
 
 ## About
 
-A full-stack tech e-commerce shop for searching and managing tech products 
+A Full Stack tech e-commerce shop for searching and managing tech products 
 
 ## Live Demo
 https://stock-ecommerce.onrender.com/
