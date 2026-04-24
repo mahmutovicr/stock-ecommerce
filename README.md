@@ -29,6 +29,8 @@ https://stock-ecommerce.onrender.com/
 ![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
+⚠️ Built as a portfolio project, not intended for commercial use
+
 ## License
 
 MIT License
