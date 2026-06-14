@@ -1,7 +1,6 @@
 import { create } from "zustand"
 
 const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD
-const API = import.meta.env.VITE_API_URL ?? ""
 
 export const useProductStore = create((set, get) => ({
   products: [],
@@ -33,7 +32,7 @@ export const useProductStore = create((set, get) => ({
 
   fetchProducts: async () => {
     try {
-      const res = await fetch(`${API}/api/products`)
+      const res = await fetch("/api/products")
       if (!res.ok) throw new Error("Failed to fetch")
       const data = await res.json()
       const all = data.data || []
@@ -79,7 +78,7 @@ export const useProductStore = create((set, get) => ({
     if (!product.name || !product.price || !product.category) {
       return { success: false, message: "Please fill all fields." }
     }
-    const res = await fetch(`${API}/api/products`, {
+    const res = await fetch("/api/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(product),
@@ -93,7 +92,7 @@ export const useProductStore = create((set, get) => ({
   },
 
   updateProduct: async (pid, updatedProduct) => {
-    const res = await fetch(`${API}/api/products/${pid}`, {
+    const res = await fetch(`/api/products/${pid}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedProduct),
@@ -112,7 +111,7 @@ export const useProductStore = create((set, get) => ({
   },
 
   deleteProduct: async (pid) => {
-    const res = await fetch(`${API}/api/products/${pid}`, { method: "DELETE" })
+    const res = await fetch(`/api/products/${pid}`, { method: "DELETE" })
     const data = await res.json()
     if (!data.success) return { success: false, message: data.message }
     set((state) => ({
